@@ -1,7 +1,9 @@
-tunnel: aravind-portfolio
-credentials-file: /etc/cloudflared/aravind-portfolio.json
+tunnel: 1eb5f7d9-a7cb-44a1-b27d-908992e62c98
+credentials-file: /etc/cloudflared/1eb5f7d9-a7cb-44a1-b27d-908992e62c98.json
 
 ingress:
+  - hostname: erp1.budeglobal.in
+    service: http://localhost:8082
   - hostname: aravind.budeglobal.in
     service: http://localhost:8085
   - service: http_status:404
