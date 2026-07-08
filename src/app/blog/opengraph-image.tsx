@@ -1,6 +1,6 @@
  
 import { ImageResponse } from "next/og";
-import { DATA } from "@/data/resume";
+import { getOgAvatar } from "@/lib/og-avatar";
 
 export const runtime = "edge";
 
@@ -110,9 +110,7 @@ export default async function Image() {
         const fontData = await getFontData();
         const title = "Blog";
         const description = "Thoughts on software development, life, and more.";
-        const imageUrl = DATA.avatarUrl
-            ? new URL(DATA.avatarUrl, DATA.url).toString()
-            : undefined;
+        const imageUrl = await getOgAvatar();
 
         return new ImageResponse(
             (

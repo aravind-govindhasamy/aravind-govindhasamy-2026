@@ -1,3 +1,4 @@
+import { MotionProvider } from "@/components/motion-provider";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -23,12 +24,31 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
-    default: DATA.name,
+    default: `${DATA.name} — ${DATA.role}`,
     template: `%s | ${DATA.name}`,
   },
   description: DATA.description,
+  keywords: [
+    "Full Stack Developer",
+    "IoT Developer",
+    "FastAPI Developer",
+    "React Developer",
+    "Next.js",
+    "TypeScript",
+    "MQTT",
+    "RFID",
+    "ERPNext",
+    "PostgreSQL",
+    "Coimbatore",
+    DATA.name,
+  ],
+  authors: [{ name: DATA.name, url: DATA.url }],
+  creator: DATA.name,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: `${DATA.name}`,
+    title: `${DATA.name} — ${DATA.role}`,
     description: DATA.description,
     url: DATA.url,
     siteName: `${DATA.name}`,
@@ -71,6 +91,7 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
+          <MotionProvider>
           <TooltipProvider delayDuration={0}>
             <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">
               <FlickeringGrid
@@ -88,6 +109,7 @@ export default function RootLayout({
             </div>
             <Navbar />
           </TooltipProvider>
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>
