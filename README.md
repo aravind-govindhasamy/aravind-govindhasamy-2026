@@ -1,47 +1,20 @@
-<div align="center">
-<img alt="Portfolio" src="https://github.com/dillionverma/portfolio/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div>
+# Aravind Govindhasamy — Portfolio (2026)
 
-# Portfolio [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdillionverma%2Fportfolio)
+Personal portfolio of **Aravind Govindhasamy** — Full Stack Developer (IoT platforms, FastAPI backends, AI-powered computer vision).
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+Built with Next.js 16, React 19, TypeScript, Tailwind CSS v4, [shadcn/ui](https://ui.shadcn.com/), and [Magic UI](https://magicui.design/).
 
-# Features
+## Editing content
 
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
+All site content lives in a single config file: [`src/data/resume.tsx`](./src/data/resume.tsx) — profile, socials, work, education, skills, projects, hackathons, and certifications. Blog posts are MDX files in [`content/`](./content/) (frontmatter requires `title`, `publishedAt`, `summary`).
 
-# Getting Started Locally
+## Getting started locally
 
-1. Clone this repository to your local machine:
+```bash
+pnpm install
+pnpm dev
+```
 
-   ```bash
-   git clone https://github.com/dillionverma/portfolio
-   ```
+## License
 
-2. Move to the cloned directory
-
-   ```bash
-   cd portfolio
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   pnpm install
-   ```
-
-4. Start the local Server:
-
-   ```bash
-   pnpm dev
-   ```
-
-5. Open the [Config file](./src/data/resume.tsx) and make changes
-
-# License
-
-Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).
+MIT — based on the [portfolio template by Dillion Verma](https://github.com/dillionverma/portfolio). See [LICENSE](./LICENSE).
