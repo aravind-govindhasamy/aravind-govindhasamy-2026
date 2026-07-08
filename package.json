@@ -9,6 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "start:8085": "next start -p 8085",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },

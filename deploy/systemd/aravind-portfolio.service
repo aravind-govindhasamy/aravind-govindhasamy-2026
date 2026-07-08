@@ -1,0 +1,16 @@
+[Unit]
+Description=Aravind portfolio Next.js app
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=budeglobal
+WorkingDirectory=/home/budeglobal/github/portfolio/aravind-govindhasamy-2026
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/pnpm start:8085
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

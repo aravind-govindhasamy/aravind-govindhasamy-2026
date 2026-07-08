@@ -15,6 +15,17 @@ pnpm install
 pnpm dev
 ```
 
+## Production on port 8085
+
+```bash
+pnpm build
+pnpm start:8085
+```
+
+Cloudflare Tunnel should point `aravind.budeglobal.in` to `http://localhost:8085`. A template is available at [`deploy/cloudflared/config.example.yml`](./deploy/cloudflared/config.example.yml).
+
+For systemd deployments, use [`deploy/systemd/aravind-portfolio.service`](./deploy/systemd/aravind-portfolio.service).
+
 ## License
 
 MIT — based on the [portfolio template by Dillion Verma](https://github.com/dillionverma/portfolio). See [LICENSE](./LICENSE).
