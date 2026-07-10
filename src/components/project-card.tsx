@@ -26,6 +26,71 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+function getTagColorClass(tag: string): string {
+  const t = tag.toLowerCase();
+  
+  // IoT & Hardware (Green)
+  if (
+    t.includes("mqtt") ||
+    t.includes("esp32") ||
+    t.includes("rfid") ||
+    t.includes("arduino") ||
+    t.includes("c/c++") ||
+    t.includes("iot") ||
+    t.includes("raspberry") ||
+    t.includes("hardware") ||
+    t.includes("firmware")
+  ) {
+    return "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20";
+  }
+  
+  // Backend, DB & APIs (Blue)
+  if (
+    t.includes("fastapi") ||
+    t.includes("python") ||
+    t.includes("node") ||
+    t.includes(".net") ||
+    t.includes("c#") ||
+    t.includes("sql") ||
+    t.includes("postgres") ||
+    t.includes("supabase") ||
+    t.includes("mysql") ||
+    t.includes("api") ||
+    t.includes("websocket") ||
+    t.includes("webrtc") ||
+    t.includes("php") ||
+    t.includes("oauth") ||
+    t.includes("db")
+  ) {
+    return "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20";
+  }
+  
+  // Frontend, UI & Design (Purple)
+  if (
+    t.includes("react") ||
+    t.includes("next") ||
+    t.includes("typescript") ||
+    t.includes("javascript") ||
+    t.includes("html") ||
+    t.includes("css") ||
+    t.includes("tailwind") ||
+    t.includes("shadcn") ||
+    t.includes("flutter") ||
+    t.includes("dart") ||
+    t.includes("wpf") ||
+    t.includes("design") ||
+    t.includes("canva") ||
+    t.includes("wordpress") ||
+    t.includes("slide") ||
+    t.includes("markdown")
+  ) {
+    return "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20";
+  }
+  
+  // Cloud, DevOps, Tools & AI (Amber/Indigo)
+  return "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20";
+}
+
 interface Props {
   title: string;
   href?: string;
@@ -133,7 +198,10 @@ export function ProjectCard({
             {tags.map((tag) => (
               <Badge
                 key={tag}
-                className="text-[11px] font-medium border border-border h-6 w-fit px-2"
+                className={cn(
+                  "text-[11px] font-medium border h-6 w-fit px-2 transition-colors",
+                  getTagColorClass(tag)
+                )}
                 variant="outline"
               >
                 {tag}

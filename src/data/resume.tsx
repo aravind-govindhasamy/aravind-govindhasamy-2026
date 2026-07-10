@@ -268,7 +268,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/circuit-digest-cloud.png",
       video: "",
     },
     {
@@ -288,7 +288,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/bude-rfid-inventory.png",
       video: "",
     },
     {
@@ -306,7 +306,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/daily-news.png",
       video: "",
     },
     {
@@ -333,7 +333,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/gemini-esp32.png",
       video: "",
     },
     {
@@ -356,7 +356,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/neuro-chain.png",
       video: "",
     },
     {
@@ -374,7 +374,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/tech-presentations.png",
       video: "",
     },
     {
@@ -394,7 +394,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/journal-management.png",
       video: "",
     },
     {
@@ -414,7 +414,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/glpi-asset-tracking.png",
       video: "",
     },
     {
@@ -432,7 +432,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/bulk-db-backup.png",
       video: "",
     },
     {
@@ -453,7 +453,7 @@ export const DATA = {
         "RFID Reader SDK",
       ],
       links: [],
-      image: "",
+      image: "/projects/jewellery-rfid.png",
       video: "",
     },
     {
@@ -471,7 +471,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/stock-control.png",
       video: "",
     },
     {
@@ -489,7 +489,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/aes-cryptography.png",
       video: "",
     },
     {
@@ -507,7 +507,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/library-kiosk.png",
       video: "",
     },
     {
@@ -525,7 +525,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/smart-library.png",
       video: "",
     },
     {
@@ -537,7 +537,7 @@ export const DATA = {
         "UG project: developed a low-cost Bitcoin mining system using Raspberry Pi and open-source software, exploring the feasibility of mining cryptocurrencies with energy-efficient hardware and tuning configurations to maximize efficiency.",
       technologies: ["Raspberry Pi", "Kali Linux", "Python"],
       links: [],
-      image: "",
+      image: "/projects/bitcoin-mining.png",
       video: "",
     },
   ],
