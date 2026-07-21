@@ -22,13 +22,9 @@ export const metadata: Metadata = {
 const PAGE_SIZE = 5;
 const BLUR_FADE_DELAY = 0.04;
 
-export default async function BlogPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ page?: string }>;
-}) {
-  const { page: pageParam } = await searchParams;
-
+// Static export: searchParams are not available at build time.
+// All posts are shown on a single page.
+export default async function BlogPage() {
   const posts = allPosts;
   const sortedPosts = [...posts].sort((a, b) => {
     if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
@@ -37,12 +33,11 @@ export default async function BlogPage({
     return 1;
   });
 
-  const totalPages = Math.ceil(sortedPosts.length / PAGE_SIZE);
-  const currentPage = normalizePage(pageParam, totalPages);
   const { items: paginatedPosts, pagination } = paginate(sortedPosts, {
-    page: currentPage,
+    page: 1,
     pageSize: PAGE_SIZE,
   });
+
 
   return (
     <section id="blog">

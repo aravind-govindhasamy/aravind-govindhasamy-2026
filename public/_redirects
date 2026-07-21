@@ -1,0 +1,4 @@
+# Cloudflare Pages – Redirects
+# Serve custom 404 page for all unmatched routes (static export fallback).
+
+/404  404

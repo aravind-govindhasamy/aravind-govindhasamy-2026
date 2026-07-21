@@ -6,11 +6,19 @@ Wants=network-online.target
 [Service]
 Type=simple
 User=budeglobal
-WorkingDirectory=/home/budeglobal/github/portfolio/aravind-govindhasamy-2026
+Group=budeglobal
+WorkingDirectory=/srv/aravind-portfolio/app
 Environment=NODE_ENV=production
-ExecStart=/usr/bin/pnpm start:8085
+Environment=PORT=8085
+Environment=HOSTNAME=127.0.0.1
+EnvironmentFile=-/srv/aravind-portfolio/app/.env.production
+ExecStart=/usr/bin/node .next/standalone/server.js
 Restart=on-failure
 RestartSec=5s
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/srv/aravind-portfolio/app
 
 [Install]
 WantedBy=multi-user.target

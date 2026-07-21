@@ -1,8 +1,12 @@
- 
 import { ImageResponse } from "next/og";
 import { getOgAvatar } from "@/lib/og-avatar";
+import fs from "fs/promises";
+import path from "path";
 
-export const runtime = "edge";
+// `runtime = "edge"` removed — not supported with `output: "export"`.
+// Next.js pre-renders this image at build time using the Node.js runtime.
+export const dynamic = "force-static";
+
 
 export const alt = "Blog";
 export const size = {
@@ -14,12 +18,8 @@ export const contentType = "image/png";
 const getFontData = async () => {
     try {
         const [cabinetGrotesk, clashDisplay] = await Promise.all([
-            fetch(
-                new URL("../../../public/fonts/CabinetGrotesk-Medium.ttf", import.meta.url)
-            ).then((res) => res.arrayBuffer()),
-            fetch(
-                new URL("../../../public/fonts/ClashDisplay-Semibold.ttf", import.meta.url)
-            ).then((res) => res.arrayBuffer()),
+            fs.readFile(path.join(process.cwd(), "public", "fonts", "CabinetGrotesk-Medium.ttf")),
+            fs.readFile(path.join(process.cwd(), "public", "fonts", "ClashDisplay-Semibold.ttf")),
         ]);
         return { cabinetGrotesk, clashDisplay };
     } catch (error) {

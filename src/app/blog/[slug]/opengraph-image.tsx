@@ -1,10 +1,16 @@
- 
-
 import { ImageResponse } from "next/og";
 import { allPosts } from "content-collections";
 import { getOgAvatar } from "@/lib/og-avatar";
+import fs from "fs/promises";
+import path from "path";
 
-export const runtime = "edge";
+export function generateStaticParams() {
+    return allPosts.map((post) => ({
+        slug: post._meta.path.replace(/\.mdx$/, ""),
+    }));
+}
+
+export const dynamic = "force-static";
 
 export const alt = "Blog Post";
 export const size = {
@@ -16,18 +22,8 @@ export const contentType = "image/png";
 const getFontData = async () => {
     try {
         const [cabinetGrotesk, clashDisplay] = await Promise.all([
-            fetch(
-                new URL(
-                    "../../../../public/fonts/CabinetGrotesk-Medium.ttf",
-                    import.meta.url
-                )
-            ).then((res) => res.arrayBuffer()),
-            fetch(
-                new URL(
-                    "../../../../public/fonts/ClashDisplay-Semibold.ttf",
-                    import.meta.url
-                )
-            ).then((res) => res.arrayBuffer()),
+            fs.readFile(path.join(process.cwd(), "public", "fonts", "CabinetGrotesk-Medium.ttf")),
+            fs.readFile(path.join(process.cwd(), "public", "fonts", "ClashDisplay-Semibold.ttf")),
         ]);
         return { cabinetGrotesk, clashDisplay };
     } catch (error) {

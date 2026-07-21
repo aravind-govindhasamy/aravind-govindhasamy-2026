@@ -18,13 +18,32 @@ pnpm dev
 ## Production on port 8085
 
 ```bash
-pnpm build
-pnpm start:8085
+pnpm build:production
+PORT=8085 HOSTNAME=127.0.0.1 pnpm start:production
 ```
 
 Cloudflare Tunnel should point `aravind.budeglobal.in` to `http://localhost:8085`. A template is available at [`deploy/cloudflared/config.example.yml`](./deploy/cloudflared/config.example.yml).
 
-For systemd deployments, use [`deploy/systemd/aravind-portfolio.service`](./deploy/systemd/aravind-portfolio.service).
+For systemd deployments, use [`deploy/systemd/aravind-portfolio.service`](./deploy/systemd/aravind-portfolio.service). It expects the production checkout at `/srv/aravind-portfolio/app` and runs the Next.js standalone server on `127.0.0.1:8085`.
+
+One-time server setup:
+
+```bash
+sudo mkdir -p /srv/aravind-portfolio
+sudo chown -R budeglobal:budeglobal /srv/aravind-portfolio
+git clone <repo-url> /srv/aravind-portfolio/app
+cp /srv/aravind-portfolio/app/deploy/env.production.example /srv/aravind-portfolio/app/.env.production
+sudo cp /srv/aravind-portfolio/app/deploy/systemd/aravind-portfolio.service /etc/systemd/system/aravind-portfolio.service
+sudo systemctl daemon-reload
+sudo systemctl enable aravind-portfolio
+```
+
+Deploy updates:
+
+```bash
+APP_DIR=/srv/aravind-portfolio/app SERVICE_NAME=aravind-portfolio \
+  /srv/aravind-portfolio/app/deploy/scripts/deploy-production.sh
+```
 
 ## License
 
